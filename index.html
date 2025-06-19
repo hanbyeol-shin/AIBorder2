@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Border Animation</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+        }
+
+        .gradient-box {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .gradient-box::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(
+                45deg,
+                #ff0000,
+                #ff7300,
+                #fffb00,
+                #48ff00,
+                #00ffd5,
+                #002bff,
+                #7a00ff,
+                #ff00c8,
+                #ff0000
+            );
+            animation: rotate 20s linear infinite;
+        }
+
+        .gradient-box::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            background: #1a1a1a;
+            border-radius: 16px;
+        }
+
+        .gradient-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-box">
+        <div class="gradient-content">
+            Gradient Border Animation
+        </div>
+    </div>
+</body>
+</html> 
